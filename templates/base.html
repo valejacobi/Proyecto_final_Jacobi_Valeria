@@ -37,8 +37,10 @@
         <header class="masthead text-center text-white">
             <div class="masthead-content">
                 <div class="container px-5">
+                    {% block header %}
                     <h1 class="masthead-heading mb-0">Viví la experiencia de viajar por el mundo!</h1>
                     <h3 class="btn-xl rounded-pill mt-5" href="#scroll">Conocé todas las opciones!</h3>
+                    {% endblock header  %}
                 </div>
             </div>
             <div class="bg-circle-1 bg-circle"></div>
@@ -46,6 +48,7 @@
             <div class="bg-circle-3 bg-circle"></div>
             <div class="bg-circle-4 bg-circle"></div>
         </header>
+        {% block content  %}
         <!-- Content section 1-->
         <section id="scroll">
             <div class="container px-5">
@@ -119,6 +122,7 @@
                 </div>
             </div>
         </section>
+        {% endblock content %}
         <!-- Footer-->
         <footer class="py-5 bg-black">
             <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Your Website 2023</p></div>
