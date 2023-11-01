@@ -13,7 +13,24 @@
             <div class="col-lg-6 order-lg-1">
                 <div class="p-5">
                     <h2 class="display-4">Viajá por África</h2>
-                    <p>Conocé los destinos mas visitados, como Marruecos, Sudráfica, Egipto, Tanzania, y muchas más!</p>
+                    
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <p>
+                            Destino:
+                            <input type="text" name="destino">
+                        </p>
+                        <p>
+                            Mes de viaje:
+                            <input type="text" name="mes">
+                        </p>
+                        <p>
+                            Días de hospedaje:
+                            <input type="number" name="dias">
+                        </p>
+            
+                            <button type="submit">Consultar</button>
+                    </form>
                 </div>
             </div>
         </div>

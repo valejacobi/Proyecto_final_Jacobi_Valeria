@@ -12,8 +12,26 @@
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="p-5">
-                    <h2 class="display-4">Viajá por Europa</h2>
-                    <p>Conocé los destinos mas visitados, como España, Francia, Italia, Alemania, Reino Unido, y muchas más!</p>
+
+                <h2 class="display-4">Viajá por Europa</h2>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p>
+                Destino:
+                <input type="text" name="destino">
+            </p>
+            <p>
+                Mes de viaje:
+                <input type="text" name="mes">
+            </p>
+            <p>
+                Días de hospedaje:
+                <input type="number" name="dias">
+            </p>
+
+                <button type="submit">Consultar</button>
+        </form>
                 </div>
             </div>
         </div>
