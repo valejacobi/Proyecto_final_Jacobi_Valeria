@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1 class="masthead-heading mb-0">Buscador de consultas de europa!</h1>
+{% endblock header  %}
+
+{% block content  %}
+<!-- Content section 1-->
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+
+                <h2 class="display-4">Aquí podrás ver los destinos, meses y días mas populares de Europa.</h2>
+
+        {% comment %} <form action="" method="POST"> {% endcomment %}
+
+            <form action="" method="get">
+                {% csrf_token %}
+                <input type="text" name="destino" placeholder="Buscar destino europeo">
+                <input type="submit" value="Buscar">
+            </form>
+             <ul>
+                 {%for europa in listado_de_europa%}
+                    <li> {{europa}}</li>
+                 {%endfor   %}
+             </ul>
+        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
