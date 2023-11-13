@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from inicio.models import Europa, America, Africa, Asia, Oceania
-from inicio.forms import EuropaFormulario, BusquedaEuropaFormulario
+from inicio.forms import EuropaFormulario, BusquedaEuropaFormulario, ActualizarEuropaFormulario
 
 def inicio (request):
 
@@ -36,6 +36,35 @@ def buscador(request):
           
           # formulario = BusquedaEuropaFormulario()
           # return render(request, 'inicio/buscador.html', {'formulario': formulario, 'listado_de_europa': listado_de_europa})
+
+def eliminar_europa(request, europa_id):
+     europa_a_eliminar = Europa.objects.get(id=europa_id)            
+     europa_a_eliminar.delete()
+     return redirect('Buscador')
+
+def actualizar_europa(request, europa_id):         	
+    europa_a_actualizar = Europa.objects.get(id=europa_id)
+    
+    if request.method == "POST":
+        formulario = ActualizarEuropaFormulario(request.POST) 
+        if formulario.is_valid():
+            info_nueva = formulario.cleaned_data
+            
+            europa_a_actualizar.destino = info_nueva.get('destino')
+            europa_a_actualizar.mes = info_nueva.get('mes')
+            europa_a_actualizar.dias = info_nueva.get('dias')
+            
+            europa_a_actualizar.save()
+            return redirect('Buscador')
+        else:
+            return render(request, 'inicio/actualizar_europa.html', {'formulario': formulario})
+				
+    formulario = ActualizarEuropaFormulario(initial={'destino': europa_a_actualizar.destino, 'mes': europa_a_actualizar.mes,'dias': europa_a_actualizar.dias})
+    return render(request, 'inicio/actualizar_europa.html', {'formulario': formulario})
+
+def detalle_europa(request, europa_id):
+    europa = Europa.objects.get(id=europa_id)
+    return render(request, 'inicio/detalle_europa.html', {'europa': europa})
 
 
 def europa_view(request):

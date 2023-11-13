@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block header %}
-<h1 class="masthead-heading mb-0">Buscador de consultas de europa!</h1>
+<h1 class="masthead-heading mb-0">Buscador de consultas de Europa!</h1>
 {% endblock header  %}
 
 {% block content  %}
@@ -22,11 +22,16 @@
                 <input type="text" name="destino" placeholder="Buscar destino europeo">
                 <input type="submit" value="Buscar">
             </form>
+            {% if listado_de_europa %}
              <ul>
                  {%for europa in listado_de_europa%}
-                    <li> {{europa}}</li>
-                 {%endfor   %}
+                    <li> {{europa}}</li> |<a href={% url "actualizar_europa" europa.id %}>Actualizar</a> | <a href={% url "eliminar_europa" europa.id %}>Eliminar</a> | <a href={% url "detalle_europa" europa.id %}>Detalle</a>
+                    </li>
+                    {%endfor   %}
              </ul>
+             {% else %}
+             <p>No se encontró el destino buscado.</p>
+             {% endif %}
         </form>
                 </div>
             </div>

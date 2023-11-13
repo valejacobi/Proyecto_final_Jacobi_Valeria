@@ -9,3 +9,8 @@ class BusquedaEuropaFormulario(forms.Form):
     destino = forms.CharField(max_length=30, required=False)
     mes = forms.CharField(max_length=30, required=False)
     dias = forms.IntegerField()
+    
+class ActualizarEuropaFormulario(forms.Form):
+    destino = forms.CharField(max_length=30, required=False)
+    mes = forms.CharField(max_length=30, required=False)
+    dias = forms.IntegerField()
