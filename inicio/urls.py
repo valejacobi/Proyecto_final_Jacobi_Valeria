@@ -1,8 +1,9 @@
 from django.urls import path
-from inicio.views import inicio, europa_view, america_view, africa_view, asia_view, oceania_view, buscador, detalle_europa, eliminar_europa, actualizar_europa
+from inicio.views import inicio, acerca_de_mi, europa_view, america_view, africa_view, asia_view, oceania_view, buscador, detalle_europa, eliminar_europa, actualizar_europa
 
 urlpatterns = [
     path('', inicio,name='inicio'),
+    path('Acerca de mi/', acerca_de_mi, name='acerca_de_mi'),
     path('buscador/', buscador,name='Buscador'),
     path('Europa/', europa_view,name='Europa'),
     path('America/', america_view,name='America'),

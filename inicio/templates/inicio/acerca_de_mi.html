@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1 class="masthead-heading mb-0">Acerca de mi!</h1>
+{% endblock header  %}
+
+{% block content  %}
+<!-- Content section 1-->
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            </div>
+            <div class="col-lg-12 order-lg-3">
+                <div class="p-5">
+                    <h2 class="display-5">¿Queres saber quién soy?</h1>
+                    
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <p>
+                          Hola a todos! 
+                         Me presento, mi nombre es Valeria y soy de Bahia Blanca. Soy licenciada en administración de empresas y amante de los viajes.
+                         La idea de este blog comenzó hace unos años cuando queríamos ir de viaje con una amiga pero no sabiamos donde encontrar
+                         recomendaciones de lugares para conocer. Por lo tanto, lo que deseo es poder ayudar a los amantes de viajar
+                         con información sobre los destinos mas populares y los dias que se necesitan para conocer el lugar! 
+
+                        </p>
+                        <p>
+                        Viajar es más que desplazarse de un lugar a otro;
+                        es sumergirse en un océano de culturas, paisajes y experiencias que transforman el alma. 
+                        Cada destino es un lienzo que espera ser explorado, con colores vivos y texturas que cuentan historias milenarias.
+                        En el corazón del viaje yace la oportunidad de descubrir lo inexplorado, de perderse para encontrarse.
+                        Cada rincón del mundo ofrece una lección valiosa, un capítulo nuevo en el libro de nuestras vidas.
+                        Con cada encuentro, el viajero se enriquece con las historias de aquellos que comparten su hogar.
+                        </p>
+                        <p>
+                        Viajar nos invita a desafiar nuestras percepciones, a salir de nuestra zona de confort y a crecer.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

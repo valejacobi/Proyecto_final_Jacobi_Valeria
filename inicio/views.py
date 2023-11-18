@@ -7,6 +7,10 @@ def inicio (request):
 
      return render (request, 'inicio/inicio.html', {})
 
+def acerca_de_mi (request):
+     
+     return render (request, 'inicio/acerca_de_mi.html', {})
+
 def buscador(request):
      
      destino_a_buscar = request.GET.get('destino')
