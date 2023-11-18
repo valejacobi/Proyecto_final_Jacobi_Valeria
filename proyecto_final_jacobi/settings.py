@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'inicio',
-    'cuentas'
+    'cuentas',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,4 @@ LOGIN_URL = '/cuentas/login'
 MEDIA_URL = '/media/' 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+

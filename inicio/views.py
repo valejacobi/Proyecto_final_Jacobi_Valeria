@@ -59,14 +59,16 @@ def actualizar_europa(request, europa_id):
             
             europa_a_actualizar.destino = info_nueva.get('destino')
             europa_a_actualizar.mes = info_nueva.get('mes')
+            europa_a_actualizar.descripcion = info_nueva.get('descripcion')
             europa_a_actualizar.dias = info_nueva.get('dias')
+            europa_a_actualizar.fecha_creacion = info_nueva.get('fecha_creacion')
             
             europa_a_actualizar.save()
             return redirect('Buscador')
         else:
             return render(request, 'inicio/actualizar_europa.html', {'formulario': formulario})
 				
-    formulario = ActualizarEuropaFormulario(initial={'destino': europa_a_actualizar.destino, 'mes': europa_a_actualizar.mes,'dias': europa_a_actualizar.dias})
+    formulario = ActualizarEuropaFormulario(initial={'destino': europa_a_actualizar.destino, 'mes': europa_a_actualizar.mes, 'descripcion': europa_a_actualizar.descripcion, 'dias': europa_a_actualizar.dias, 'fecha_creacion': europa_a_actualizar.fecha_creacion})
     return render(request, 'inicio/actualizar_europa.html', {'formulario': formulario})
 
 def detalle_europa(request, europa_id):
@@ -92,9 +94,11 @@ def europa_view(request):
 
                destino = info_limpia.get('destino')
                mes = info_limpia.get('mes')
+               descripcion = info_limpia.get('descripcion')
                dias = info_limpia.get('dias')
+               fecha_creacion = info_limpia.get('fecha_creacion')
 
-               europa = Europa(destino=destino.lower(), mes=mes, dias=dias)
+               europa = Europa(destino=destino.lower(), mes=mes, descripcion=descripcion, dias=dias, fecha_creacion=fecha_creacion)
                europa.save()
 
                return redirect('Buscador')

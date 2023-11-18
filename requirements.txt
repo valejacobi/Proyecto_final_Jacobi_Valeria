@@ -6,6 +6,8 @@ comm==0.1.4
 debugpy==1.6.7.post1
 decorator==5.1.1
 Django==4.2.6
+django-ckeditor==6.7.0
+django-js-asset==2.1.0
 executing==1.2.0
 ipykernel==6.25.1
 ipython==8.14.0

@@ -14,11 +14,23 @@
                 <div class="p-5">
 
                 <h2 class="display-4">Viajá por Europa</h2>
+                <a href={% url "Buscador" %}>Click aquí para ingresar al buscador de destinos de Europa</a> 
+                <p>
 
+
+                </p>
         <form action="" method="POST">
             {% csrf_token %}
 
-            <p>
+                <table>
+                    {{formulario.media}}
+                    {{formulario}}
+                </table>
+                <input type="submit" value="Crear">
+            </form>
+
+
+            {% comment %} <p>
                  Destino:
                 <input type="text" name="destino"> 
             </p>
@@ -27,11 +39,20 @@
                 <input type="text" name="mes">
             </p>
             <p>
+                Descripcion:
+                <input type="text" name="descripcion">
+            </p>
+            <p>
                 Días para conocer:
                 <input type="number" name="dias">
             </p>
+            <p>
+                Fecha de creacion de la info:
+                <input type="date" name="fecha_creacion">
+            </p>
 
                 <button type="submit">Ingresar</button>
+                 {% endcomment %}
         </form>
                 </div>
             </div>
