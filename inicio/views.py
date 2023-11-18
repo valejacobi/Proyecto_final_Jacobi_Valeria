@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from inicio.models import Europa, America, Africa, Asia, Oceania
 from inicio.forms import EuropaFormulario, BusquedaEuropaFormulario, ActualizarEuropaFormulario
+from django.contrib.auth.decorators import login_required
 
 def inicio (request):
 
@@ -37,11 +38,13 @@ def buscador(request):
           # formulario = BusquedaEuropaFormulario()
           # return render(request, 'inicio/buscador.html', {'formulario': formulario, 'listado_de_europa': listado_de_europa})
 
+@login_required
 def eliminar_europa(request, europa_id):
      europa_a_eliminar = Europa.objects.get(id=europa_id)            
      europa_a_eliminar.delete()
      return redirect('Buscador')
 
+@login_required
 def actualizar_europa(request, europa_id):         	
     europa_a_actualizar = Europa.objects.get(id=europa_id)
     
