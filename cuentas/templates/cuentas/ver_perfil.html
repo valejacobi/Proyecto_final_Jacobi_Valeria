@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1 class="masthead-heading mb-0">Bienvenido a tu perfil!</h1>
+{% endblock header  %}
+
+{% block content  %}
+<!-- Content section 1-->
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+
+                <h2 class="display-4">Tu perfil</h2>
+
+        {% comment %} <form action="" method="POST"> {% endcomment %}
+
+                <div class= "fw-bolder text-center"> 
+                    <ul class="list-unstyled">
+                        <li>Nombre de usuario: {{request.user.username}}</li>
+                        <li>Nombre: {{request.user.first_name}}</li>
+                        <li>Apellido: {{request.user.last_name}}</li>
+                        <li>Email: {{request.user.email}}</li>
+                        <li>Biografía: {{datos_extra.biografia }}</li>
+                        <li>Avatar: 
+                            {% if datos_extra.avatar %}
+                                <img src="{{ datos_extra.avatar.url }}" alt="Avatar" style="width:50px;">
+                            {% else %}
+                            <img src="{{ datos_extra.avatar}}" alt="Avatar" style="width:50px;">
+                            {% endif %}
+                    </ul>
+
+            </form> 
+            <a href={% url "editar_perfil" %}>Editar perfil</a> 
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

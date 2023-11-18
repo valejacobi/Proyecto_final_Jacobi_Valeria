@@ -36,7 +36,7 @@
                         <a class="btn btn-primary" href={% url "login" %}>Iniciar Sesion</a>
                         <a class="btn btn-secondary" href={% url "registrarse" %}>Registrarse</a>
                         {% else %}
-                        <a class="navbar-brand" href={% url "editar_perfil" %}>
+                        <a class="navbar-brand" href={% url "ver_perfil" %}>
                             {% if request.user.datosextra.avatar %}
                                 <img src={{request.user.datosextra.avatar.url}} alt="avatar" height='40px'>
                             {% endif %}
@@ -70,10 +70,16 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     </div>
-                    <div class="col-lg-6 order-lg-1">
+                    <div class="col-lg-10 order-lg-1">
                         <div class="p-5">
                             <h2 class="display-4">Viajá por Europa</h2>
-                            <p>Conocé cuales los destinos mas visitados, como España, Francia, Italia, Alemania, Reino Unido, y muchas más!</p>
+                            <p>
+                            Explora los destinos más visitados de Europa y descubre la fascinante mezcla de historia, arte y cultura que los hace únicos. 
+                            Conoce la magia que cada lugar tiene para ofrecer y vive experiencias inolvidables en el corazón del viejo continente.
+                            </p>
+                            <p>
+                            ¡Prepárate para una aventura inigualable!"
+                            </p>
                         </div>
                     </div>
                 </div>

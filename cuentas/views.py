@@ -23,7 +23,7 @@ def login(request):
             
             DatosExtra.objects.get_or_create(user=request.user)
             
-            return redirect('inicio')
+            return redirect('ver_perfil')
               
     return render(request, 'cuentas/login.html', {'formulario_de_login': formulario})
 
@@ -39,6 +39,10 @@ def registro(request):
             return redirect('login')
             
     return render(request, 'cuentas/registro.html', {'formulario_de_registro': formulario})
+
+def ver_perfil(request):
+    datos_extra = DatosExtra.objects.get_or_create(user=request.user)[0]
+    return render(request, 'cuentas/ver_perfil.html', {'datos_extra': datos_extra})
 
 def editar_perfil(request): 
     datos_extra = request.user.datosextra
@@ -59,10 +63,11 @@ def editar_perfil(request):
             datos_extra.save()
             formulario.save() 
 
-            return redirect('inicio')   #que se lleve al perfil para entrega 
+            return redirect('ver_perfil')
 
     return render(request, 'cuentas/editar_perfil.html', {'formulario': formulario}) 
 
+
 class CambiarPassword(PasswordChangeView): 
     template_name = 'cuentas/cambiar_password.html' 
-    success_url = reverse_lazy('editar_perfil')
+    success_url = reverse_lazy('login')
