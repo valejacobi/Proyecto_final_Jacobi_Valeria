@@ -6,7 +6,7 @@ class Europa(models.Model):
     dias = models.IntegerField()
     
     def __str__(self):
-        return f'{self.id} - {self.destino} - {self.mes} - {self.dias}'
+        return f'{self.id} - {self.destino} - {self.mes}'
     
 class America(models.Model):
     destino = models.CharField(max_length=30)

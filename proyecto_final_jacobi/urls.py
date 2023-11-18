@@ -1,5 +1,5 @@
 """
-URL configuration for tercera_pre_entrega_jacobi project.
+URL configuration for proyecto_final_jacobi project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
