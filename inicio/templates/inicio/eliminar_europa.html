@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1 class="masthead-heading mb-0"> Verifique la informacion a eliminar</h1>
+{% endblock header  %}
+
+{% block content  %}
+<!-- Content section 1-->
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            </div>
+            <div class="col-lg-10 order-lg-8">
+                <div class="p-5">
+                <p>
+
+
+                </p>
+                <form action="" method="POST">
+                    {% csrf_token %}
+
+                   <h4> Estás seguro que vas eliminar la informacion {{europa.id}} - {{europa.destino}} - {{europa.mes}} - {{europa.dias}}?  </h4>
+
+                    <input type="submit" value="Confirmar">
+
+                </form>
+                <p>
+                <a href={% url "Buscador" %}>Volver</a> 
+                </p>
+        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
