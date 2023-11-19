@@ -62,7 +62,7 @@ def actualizar_europa(request, europa_id):
     europa_a_actualizar = Europa.objects.get(id=europa_id)
     
     if request.method == "POST":
-        formulario = ActualizarEuropaFormulario(request.POST) 
+        formulario = ActualizarEuropaFormulario(request.POST, request.FILES) 
         if formulario.is_valid():
             info_nueva = formulario.cleaned_data
             
@@ -71,13 +71,14 @@ def actualizar_europa(request, europa_id):
             europa_a_actualizar.descripcion = info_nueva.get('descripcion')
             europa_a_actualizar.dias = info_nueva.get('dias')
             europa_a_actualizar.fecha_creacion = info_nueva.get('fecha_creacion')
+            europa_a_actualizar.imagen = info_nueva.get('imagen')
             
             europa_a_actualizar.save()
             return redirect('Buscador')
         else:
             return render(request, 'inicio/actualizar_europa.html', {'formulario': formulario})
 				
-    formulario = ActualizarEuropaFormulario(initial={'destino': europa_a_actualizar.destino, 'mes': europa_a_actualizar.mes, 'descripcion': europa_a_actualizar.descripcion, 'dias': europa_a_actualizar.dias, 'fecha_creacion': europa_a_actualizar.fecha_creacion})
+    formulario = ActualizarEuropaFormulario(initial={'destino': europa_a_actualizar.destino, 'mes': europa_a_actualizar.mes, 'descripcion': europa_a_actualizar.descripcion, 'dias': europa_a_actualizar.dias, 'fecha_creacion': europa_a_actualizar.fecha_creacion, 'imagen': europa_a_actualizar.imagen})
     return render(request, 'inicio/actualizar_europa.html', {'formulario': formulario})
 
 def detalle_europa(request, europa_id):
@@ -97,8 +98,9 @@ def europa_view(request):
      #      return render (request, 'inicio/europa.html', {})
 
      if request.method == 'POST':
-          formulario = EuropaFormulario(request.POST)
+          formulario = EuropaFormulario(request.POST, request.FILES)
           if formulario.is_valid():
+               
                info_limpia = formulario.cleaned_data
 
                destino = info_limpia.get('destino')
@@ -106,8 +108,9 @@ def europa_view(request):
                descripcion = info_limpia.get('descripcion')
                dias = info_limpia.get('dias')
                fecha_creacion = info_limpia.get('fecha_creacion')
+               imagen = info_limpia.get('imagen')
 
-               europa = Europa(destino=destino.lower(), mes=mes, descripcion=descripcion, dias=dias, fecha_creacion=fecha_creacion)
+               europa = Europa(destino=destino.lower(), mes=mes, descripcion=descripcion, dias=dias, fecha_creacion=fecha_creacion, imagen=imagen)
                europa.save()
 
                return redirect('Buscador')
@@ -118,9 +121,6 @@ def europa_view(request):
      return render(request, 'inicio/europa.html', {'formulario':formulario})
 
 def america_view(request):
-     
-     
-     
      
      
      if request.method == 'POST':

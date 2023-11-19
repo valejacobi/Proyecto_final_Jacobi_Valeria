@@ -23,6 +23,11 @@
                     <li>descripcion: {{europa.descripcion| safe }}</li>
                     <li>dias: {{europa.dias}}</li>
                     <li>fecha de creacion: {{europa.fecha_creacion}}</li>
+                    <br>
+                    {% if europa.imagen %}
+                        <img src="{{ europa.imagen.url }}" alt="" width="300" height="300">
+                    {% endif %}
+                    <br>
                 </ul>
                 <p>
                     <a href={% url "Buscador" %}>Volver</a> 

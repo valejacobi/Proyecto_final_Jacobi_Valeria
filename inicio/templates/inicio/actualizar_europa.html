@@ -17,7 +17,7 @@
 
         {% comment %} <form action="" method="POST"> {% endcomment %}
 
-            <form action="" method="POST">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <table>
                     {{formulario.media}}
@@ -25,7 +25,7 @@
                 </table>
                 <input type="submit" value="Actualizar">
             
-        </form>
+            </form>
         <p>
             <a href={% url "Buscador" %}>Volver</a> 
             </p>
