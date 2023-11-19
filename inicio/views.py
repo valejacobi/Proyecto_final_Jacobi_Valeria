@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from inicio.models import Europa, America, Africa, Asia, Oceania
+from inicio.models import Europa
 from inicio.forms import EuropaFormulario, BusquedaEuropaFormulario, ActualizarEuropaFormulario
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import DeleteView
@@ -119,66 +119,3 @@ def europa_view(request):
 
      formulario = EuropaFormulario()
      return render(request, 'inicio/europa.html', {'formulario':formulario})
-
-def america_view(request):
-     
-     
-     if request.method == 'POST':
-          destino = request.POST.get('destino')
-          mes = request.POST.get('mes')
-          dias = request.POST.get('dias')
-
-          america = America(destino=destino, mes=mes, dias=dias)
-          america.save()
-
-          return render (request, 'inicio/america.html', {})
-
-     return render(request, 'inicio/america.html', {})
-
-
-
-
-
-# def africa_view(request):
-
-#      if request.method == 'POST':
-#           destino = request.POST.get('destino')
-#           mes = request.POST.get('mes')
-#           dias = request.POST.get('dias')
-
-
-#           africa = Africa(destino=destino, mes=mes, dias=dias)
-#           africa.save()
-
-#           return render (request, 'inicio/africa.html', {})
-
-#      return render(request, 'inicio/africa.html', {})
-
-# def asia_view(request):
-
-#      if request.method == 'POST':
-#           destino = request.POST.get('destino')
-#           mes = request.POST.get('mes')
-#           dias = request.POST.get('dias')
-
-#           asia = Asia(destino=destino, mes=mes, dias=dias)
-#           asia.save()
-
-#           return render (request, 'inicio/asia.html', {})
-
-#      return render(request, 'inicio/asia.html', {})
-
-
-# def oceania_view(request):
-#      if request.method == 'POST':
-#           destino = request.POST.get('destino')
-#           mes = request.POST.get('mes')
-#           dias = request.POST.get('dias')
-
-
-#           oceania = Oceania(destino=destino, mes=mes, dias=dias)
-#           oceania.save()
-
-#           return render (request, 'inicio/oceania.html', {})
-
-#      return render(request, 'inicio/oceania.html', {})
